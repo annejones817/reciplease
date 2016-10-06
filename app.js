@@ -1,6 +1,6 @@
 $(document).ready(function(event){
 	function getRecipeData (userSearch, callback){
-		var baseURL = 'http://api.yummly.com/v1/api/recipes';
+		var baseURL = 'https://api.yummly.com/v1/api/recipes';
 		var query = {
 			q: userSearch, 
 			_app_id: '863760f1', 
@@ -24,12 +24,12 @@ $(document).ready(function(event){
 				'<div class="col-4">' +
 		            '<div class="result-card">' +
 		                 '<div class="name-source">' +   
-		                    '<a class="name-link" href="http://www.yummly.com/recipe/' + data.matches[i].id + '"target="_blank">' +
+		                    '<a class="name-link" href="https://www.yummly.com/recipe/' + data.matches[i].id + '"target="_blank">' +
 		                    '<h2 class="name">'+ data.matches[i].recipeName +'</h2></a>'+
 		                    '<h3 class="source">By: '+ data.matches[i].sourceDisplayName +'</h3>' +
 		                 '</div>' +   
 		                '<div class="recipe-image">' +
-		                    '<a href="http://www.yummly.com/recipe/' + data.matches[i].id + '"target="_blank">' +
+		                    '<a href="https://www.yummly.com/recipe/' + data.matches[i].id + '"target="_blank">' +
 		                        '<img alt="recipe-image" class="recipe-image" src="'+ data.matches[i].imageUrlsBySize['90'] +'"></a>' +
 		                '</div>' +    
 		                '<div class="rating-ingredients">' +
