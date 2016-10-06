@@ -10,11 +10,6 @@ $(document).ready(function(event){
 	}
 
 	function generateResultsHTML(data) {
-		/*var resultsHTML = '<div class="result">';
-		for (var i=0; i<data.matches.length; i++) {
-			resultsHTML += '<span class="recipe-name">'+data.matches[i].recipeName+'</span>' +
-			'<div class="recipe-image"><a href="http://www.yummly.com/recipe/'+data.matches[i].id+'"><img alt="recipe-image" src="'+data.matches[i].imageUrlsBySize["90"]+'"></a></div></div>';
-		}*/
 		var resultsHTML = '<div class="row">';
 		for (var i=0; i<data.matches.length; i++) {
 			if (i>0 && i%3===0) {
