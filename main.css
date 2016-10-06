@@ -1,0 +1,51 @@
+.recipe-search {
+	margin: 0 auto;
+}
+
+.recipe-image {
+	width:100%;
+}
+
+.result-card {
+	border: 1px solid gray;
+	margin-bottom:10px;
+}
+
+.name-source, .rating-ingredients {
+	margin-bottom:5px;
+	padding:2px;
+}
+
+.name, .source {
+	padding: 0;
+	margin: 0 0 5px 0;
+}
+
+.name {
+	font-size:1.15em;
+}
+
+.source {
+	font-size: .95em;
+}
+
+
+
+.name-link {
+	text-decoration:none;
+	color:black;
+}
+
+
+.name-link:hover {
+	font-style:italic;
+}
+
+
+
+
+
+
+
+
+
