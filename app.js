@@ -10,6 +10,7 @@ $(document).ready(function(event){
 	}
 
 	function generateResultsHTML(data) {
+		if (data.matches.length>0) {
 		var resultsHTML = '<div class="row">';
 		for (var i=0; i<data.matches.length; i++) {
 			if (i>0 && i%3===0) {
@@ -41,8 +42,12 @@ $(document).ready(function(event){
 			resultsHTML+= '</div>';
 		}
 		resultsHTML += data.attribution.html;
-		console.log(resultsHTML);
 		$('main').append(resultsHTML);
+	} else {
+		$('main').append(
+			"<div class='row'><div class='col-12'><div class='no-results'>Sorry, there are no results for your search.</div></div></div>"	
+			);
+	}
 	}
 			
 
