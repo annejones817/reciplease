@@ -41,6 +41,15 @@
 	font-style:italic;
 }
 
+.search-again {
+	display:inline-block;
+	margin-left:10px;
+}
+
+.header-contents > h1 {
+	display:inline-block;
+}
+
 
 
 

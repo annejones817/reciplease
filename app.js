@@ -52,7 +52,8 @@ $(document).ready(function(event){
 			
 
 	function displayResults(data){
-		$('h1').text('Results');
+		$('h1').text('Results for ' + $('.search-input').val() );
+		$('.header-contents').append('<button class="search-again">Search Again</button>');
 		$('.recipe-search').remove();
 		generateResultsHTML(data);
 	}
@@ -61,6 +62,11 @@ $(document).ready(function(event){
 		event.preventDefault();
 		var userSearch = $('.search-input').val();
 		getRecipeData(userSearch, displayResults);
+	});
+
+	$('.header-contents').on('click', '.search-again', function(event){
+		console.log('detected');
+		location.reload(true);
 	});
 
 });
