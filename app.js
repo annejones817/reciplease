@@ -32,7 +32,24 @@ $(document).ready(function(event){
 
 	function generateResultsHTML(data) {
 		var resultsHTML = '';
-		if(counter%2===0) {
+		resultsHTML += '<div class="col-6">' +
+					            '<div class="result-card">' +
+					                '<div class="name-source">' +   
+					                    '<a class="name-link" href="https://www.yummly.com/recipe/' + data.id + '"target="_blank">' +
+					                    '<h2 class="name">'+ data.name +'</h2></a>'+
+					                    '<h3 class="source">By: '+ data.source.sourceDisplayName +'</h3>' +
+					                '</div>' +   
+					                '<div class="recipe-image">' +
+					                    '<a href="https://www.yummly.com/recipe/' + data.id + '"target="_blank">' +
+					                        '<img alt="recipe-image" class="recipe-image" src="'+ data.images[0].imageUrlsBySize['360'] +'"></a>' +
+					                '</div>' +    
+					                '<div class="rating-ingredients">' +
+						                '<p class="rating">Rating: ' + data.rating + '</p>' +   
+						                '<p class="ingredients">Ingredients: ' + data.ingredientLines.join(', ') + '</p>' +
+						            '</div>' +    
+			            		'</div>' +
+			        		'</div>'
+		/*if(counter%2===0) {
 		resultsHTML += '<div class="row">' + 
 							'<div class="col-6">' +
 					            '<div class="result-card">' +
@@ -71,9 +88,9 @@ $(document).ready(function(event){
 			        		'</div>' +
 		        		'</div>';
 		}         
-		counter += 1;
+		counter += 1;*/
 		console.log(resultsHTML);
-		$('main').append(resultsHTML);
+		$('.results-container').append(resultsHTML);
 	}
 
 ///////////////////Display Results////////////////////////////////////////////			
@@ -81,6 +98,7 @@ $(document).ready(function(event){
 	function displayResults(data){
 		$('h1').text('Results for ' + userSearch );
 		$('.recipe-search').remove();
+		$('.results-container').removeClass('hidden');
 		generateResultsHTML(data);
 	}
 
