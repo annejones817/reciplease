@@ -16,6 +16,20 @@
 	padding:2px;
 }
 
+.name-source {
+	height:4em;
+}
+
+.rating-ingredients {
+	height:8em;
+	overflow-y:scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 .name, .source {
 	padding: 0;
 	margin: 0 0 5px 0;

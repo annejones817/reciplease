@@ -13,11 +13,11 @@ $(document).ready(function(event){
 		if (data.matches.length>0) {
 		var resultsHTML = '<div class="row">';
 		for (var i=0; i<data.matches.length; i++) {
-			if (i>0 && i%3===0) {
+			if (i>0 && i%2===0) {
 				resultsHTML += '<div class="row">';
 			}
 			resultsHTML += 
-				'<div class="col-4">' +
+				'<div class="col-6">' +
 		            '<div class="result-card">' +
 		                 '<div class="name-source">' +   
 		                    '<a class="name-link" href="https://www.yummly.com/recipe/' + data.matches[i].id + '"target="_blank">' +
@@ -34,7 +34,7 @@ $(document).ready(function(event){
 			            '</div>' +    
 		            '</div>' +
 		        '</div>' ;
-			if ((i+1)%3===0) {
+			if ((i+1)%2===0) {
 				resultsHTML += '</div>';
 			}
 		}
