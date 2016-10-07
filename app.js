@@ -18,7 +18,7 @@ $(document).ready(function(event){
 		  data: query
 		}).done(function(results) {
 		  results.matches.forEach(function(element){
-			baseURL = 'http://api.yummly.com/v1/api/recipe/' + element.id;
+			baseURL = 'https://api.yummly.com/v1/api/recipe/' + element.id;
 			query = {
 				_app_id: _app_id, 
 				_app_key: _app_key
