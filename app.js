@@ -43,12 +43,56 @@ $(document).ready(function(event){
 					                    '<a href="https://www.yummly.com/recipe/' + data.id + '"target="_blank">' +
 					                        '<img alt="recipe-image" class="recipe-image" src="'+ data.images[0].imageUrlsBySize['360'] +'"></a>' +
 					                '</div>' +    
-					                '<div class="rating-ingredients">' +
-						                '<p class="rating">Rating: ' + data.rating + '</p>' +   
-						                '<p class="ingredients">Ingredients: ' + data.ingredientLines.join(', ') + '</p>' +
-						            '</div>' +    
-			            		'</div>' +
-			        		'</div>'
+					                '<div class="rating-attribution">'; 
+						               
+		if (data.rating===1) {   
+			resultsHTML += 
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>'; 
+						}
+
+		else if (data.rating===2) {   
+			resultsHTML += 
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' 
+						}
+
+		else if (data.rating===3) {   
+			resultsHTML += 
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' ;
+						}
+
+		else if (data.rating===4) {   
+			resultsHTML += 
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>';
+						}	
+
+		else if (data.rating===5) {   
+			resultsHTML += 
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>' +
+							'<i class="fa fa-star-o" aria-hidden="true"></i>';
+						}
+		else  {resultsHTML += '<p class="rating">No rating is available for this recipe.</p>';}												
+						                
+		resultsHTML +=	'<div class="attribution">' + data.attribution.html + '</div></div></div></div>';
+		
 		/*if(counter%2===0) {
 		resultsHTML += '<div class="row">' + 
 							'<div class="col-6">' +
@@ -62,7 +106,7 @@ $(document).ready(function(event){
 					                    '<a href="https://www.yummly.com/recipe/' + data.id + '"target="_blank">' +
 					                        '<img alt="recipe-image" class="recipe-image" src="'+ data.images[0].imageUrlsBySize['360'] +'"></a>' +
 					                '</div>' +    
-					                '<div class="rating-ingredients">' +
+					                '<div class="rating-attribution">' +
 						                '<p class="rating">Rating: ' + data.rating + '</p>' +   
 						                '<p class="ingredients">Ingredients: ' + data.ingredientLines.join(', ') + '</p>' +
 						            '</div>' +    
@@ -80,7 +124,7 @@ $(document).ready(function(event){
 					                    '<a href="https://www.yummly.com/recipe/' + data.id + '"target="_blank">' +
 					                        '<img alt="recipe-image" class="recipe-image" src="'+ data.images[0].imageUrlsBySize['360'] +'"></a>' +
 					                '</div>' +    
-					                '<div class="rating-ingredients">' +
+					                '<div class="rating-attribution">' +
 						                '<p class="rating">Rating: ' + data.rating + '</p>' +   
 						                '<p class="ingredients">Ingredients: ' + data.ingredientLines.join(', ') + '</p>' +
 						            '</div>' +    
@@ -89,7 +133,6 @@ $(document).ready(function(event){
 		        		'</div>';
 		}         
 		counter += 1;*/
-		console.log(resultsHTML);
 		$('.results-container').append(resultsHTML);
 	}
 
@@ -97,7 +140,11 @@ $(document).ready(function(event){
 
 	function displayResults(data){
 		$('h1').text('Results for ' + userSearch );
-		$('.recipe-search').remove();
+		$('.recipe-search > h2').text('Start New Search');
+		$('.recipe-search > h2').addClass('new-search');
+		$('.submit-search').text('Search Again');
+		$('.submit-search').addClass('search-again');
+		$('.search-input').val('');
 		$('.results-container').removeClass('hidden');
 		generateResultsHTML(data);
 	}
@@ -110,8 +157,12 @@ $(document).ready(function(event){
 		getRecipeData(userSearch, displayResults);
 	});
 
-	$('.header-contents').on('click', '.search-again', function(event){
-		location.reload(true);
+	$('.recipe-search-form').on('click', '.search-again', function(event){
+		event.preventDefault();
+		$('.col-6').remove();
+		userSearch = $('.search-input').val();
+		console.log(userSearch);
+		getRecipeData(userSearch, displayResults);
 	});
 
 });

@@ -5,7 +5,7 @@
 	<meta name='description' content='A search engine for recipes'>
 	  <!-- Responsive viewport tag, tells small screens that it's responsive -->
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+  	<script src="https://use.fontawesome.com/7026219ebd.js"></script>
 	  <!-- Normalize.css, a cross-browser reset file -->
 	  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
 
@@ -25,22 +25,20 @@
 	</header>
 
 	<main>
-		<div class='results-container hidden'></div>
-		<div class='row recipe-search'>	
-			<div class='col-12 recipe-search'>	
-				<div class='recipe-search'>
-					<h2>Find Recipes</h2>
-					<p>Search for recipes</p>
-					<form class='recipe-search-form'>
-					<input class='search-input' type='text' placeholder='Chocolate chip cookies' >
-					<button class='submit-search'>Search Now</button>
-					</form>
-				</div>
-			</div>	
-		</div>	
+		<div class='row'>	
+			<div class='col-12 recipe-search'>
+				<h2>Search for Recipes</h2>
+				<form class='recipe-search-form'>
+				<input class='search-input' type='text' placeholder='Cookies' >
+				<button class='submit-search'>Search Now</button>
+				</form>
+			</div>
+		</div>
+		<div class='results-container hidden'></div>	
 	</main>	
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
 
 
 <script src='app.js'></script>
