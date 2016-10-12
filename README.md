@@ -2,6 +2,7 @@
 Reciplease is my Thinkful (https://www.thinkful.com) front end web development final project. It is a responsive web app that allows users to search for recipes. 
 
 ##Screenshots
+<img src="/Reciplease-Image-One.png">
 ![Search Screen](Reciplease/Reciplease-Image-One.png)
 ![Result Screen](Reciplease/Reciplease-Image-Two.png)
 ![Mobile Responsive Example](Reciplease/Reciplease-Image-Three.png)
